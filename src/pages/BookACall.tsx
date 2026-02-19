@@ -1,33 +1,8 @@
-import { useEffect, useState } from 'react';
 import { Calendar, CheckCircle, MessageCircle, Clock, Shield, Zap } from 'lucide-react';
+import CalendarEmbed from '../components/CalendarEmbed';
 import PremiumButton from '../components/PremiumButton';
 
 export default function BookACall() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Load the form embed script safely
-    const scriptId = 'dineauto-form-embed';
-
-    // Check if script is already loaded
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement('script');
-      script.id = scriptId;
-      script.src = 'https://api.dineauto.com/js/form_embed.js';
-      script.type = 'text/javascript';
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    // Simulate loading state for smooth UX
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
 
   return (
     <div className="relative">
@@ -115,35 +90,10 @@ export default function BookACall() {
                   {/* Subtle gradient glow at top */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-green-400 to-amber-400"></div>
 
-                  {/* Loading skeleton */}
-                  {isLoading && (
-                    <div className="absolute inset-0 bg-slate-900/90 z-10 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 border-4 border-amber-400/30 border-t-amber-400 rounded-full animate-spin mx-auto mb-4"></div>
-                        <p className="text-gray-400">Loading calendar...</p>
-                      </div>
-                    </div>
-                  )}
-
                   {/* Calendar container */}
                   <div className="p-6 sm:p-8">
-                    <div
-                      className="bg-white rounded-xl overflow-hidden"
-                      style={{ minHeight: '760px' }}
-                    >
-                      <iframe
-                        src="https://api.dineauto.com/widget/booking/3GGlqO4rVYaqN7bhN8Of"
-                        style={{
-                          width: '100%',
-                          border: 'none',
-                          overflow: 'hidden',
-                          minHeight: '760px',
-                        }}
-                        scrolling="no"
-                        id="3GGlqO4rVYaqN7bhN8Of_1766242670749"
-                        title="DineAuto Booking Calendar"
-                        onLoad={() => setIsLoading(false)}
-                      />
+                    <div className="rounded-xl overflow-hidden">
+                      <CalendarEmbed />
                     </div>
                   </div>
                 </div>
