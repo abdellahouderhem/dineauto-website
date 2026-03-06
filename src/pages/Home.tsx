@@ -22,7 +22,7 @@ import FloatingCard from '../components/FloatingCard';
 import PremiumButton from '../components/PremiumButton';
 import SectionTitle from '../components/SectionTitle';
 import CaseStudiesSection from '../components/CaseStudiesSection';
-import PremiumVideoSection from '../components/PremiumVideoSection';
+import RoadmapSection from '../components/RoadmapSection';
 import ScarcityVideoSection from '../components/ScarcityVideoSection';
 import PhilosophySection from '../components/PhilosophySection';
 import GuaranteeSection from '../components/GuaranteeSection';
@@ -171,7 +171,7 @@ export default function Home() {
         </div>
       </section>
 
-      <PremiumVideoSection />
+      <RoadmapSection />
 
       <PhilosophySection />
 
