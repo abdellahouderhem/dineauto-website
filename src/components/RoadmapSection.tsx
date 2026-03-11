@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Play } from 'lucide-react';
+import { Play, X } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 
 const steps = [
@@ -59,7 +59,73 @@ function useInView(threshold = 0.25) {
   return { ref, inView };
 }
 
-function VideoPlaceholder({ videoId }: { videoId?: string }) {
+function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void }) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setVisible(true));
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') handleClose(); };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, []);
+
+  function handleClose() {
+    setVisible(false);
+    setTimeout(onClose, 300);
+  }
+
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-8"
+      style={{
+        backgroundColor: `rgba(0,0,0,${visible ? 0.92 : 0})`,
+        transition: 'background-color 300ms ease',
+      }}
+      onClick={handleClose}
+    >
+      <div
+        className="relative w-full"
+        style={{
+          maxWidth: '88vw',
+          transform: visible ? 'scale(1)' : 'scale(0.85)',
+          opacity: visible ? 1 : 0,
+          transition: 'transform 320ms cubic-bezier(0.34,1.56,0.64,1), opacity 300ms ease',
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="absolute -inset-4 rounded-2xl bg-green-500/20 blur-3xl" />
+        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-green-500/40 via-green-400/25 to-green-500/40 blur-xl" />
+
+        <div className="relative rounded-2xl overflow-hidden border border-green-500/40 shadow-[0_0_80px_rgba(34,197,94,0.25),0_0_160px_rgba(34,197,94,0.1)]">
+          <div className="aspect-video w-full bg-black">
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&autoplay=1`}
+              title="DineAuto Step Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+
+        <button
+          onClick={handleClose}
+          className="absolute -top-4 -right-4 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200 z-10"
+          aria-label="Close video"
+        >
+          <X size={18} className="text-black" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function VideoPlaceholder({ videoId, onOpen }: { videoId?: string; onOpen?: () => void }) {
   return (
     <div className="relative group mt-5">
       <div className="absolute -inset-3 rounded-2xl bg-green-500/20 blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700 animate-breathe" />
@@ -68,13 +134,26 @@ function VideoPlaceholder({ videoId }: { videoId?: string }) {
         <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-green-500/5" />
         <div className="aspect-video relative">
           {videoId ? (
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0`}
-              title="DineAuto Step Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <button
+              onClick={onOpen}
+              className="w-full h-full relative block focus:outline-none"
+              aria-label="Play video"
+            >
+              <img
+                src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                alt="Video thumbnail"
+                className="w-full h-full object-cover"
+                onError={e => {
+                  (e.currentTarget as HTMLImageElement).src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                }}
+              />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-green-500/20 border-2 border-green-400/60 flex items-center justify-center group-hover:bg-green-500/35 group-hover:scale-110 transition-all duration-300 shadow-[0_0_30px_rgba(34,197,94,0.4)]">
+                  <Play className="text-green-400 ml-1" size={28} fill="currentColor" />
+                </div>
+              </div>
+            </button>
           ) : (
             <div className="w-full h-full flex items-center justify-center">
               <div className="text-center z-10">
@@ -94,7 +173,15 @@ function VideoPlaceholder({ videoId }: { videoId?: string }) {
   );
 }
 
-function TimelineStop({ step, index }: { step: (typeof steps)[0]; index: number }) {
+function TimelineStop({
+  step,
+  index,
+  onOpenVideo,
+}: {
+  step: (typeof steps)[0];
+  index: number;
+  onOpenVideo: (videoId: string) => void;
+}) {
   const { ref, inView } = useInView(0.2);
   const isRight = step.side === 'right';
 
@@ -112,7 +199,7 @@ function TimelineStop({ step, index }: { step: (typeof steps)[0]; index: number 
             <div className="bg-gradient-to-br from-gray-900 to-black border border-green-500/20 rounded-2xl p-6 shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:border-green-500/40 hover:shadow-[0_0_50px_rgba(34,197,94,0.08)] transition-all duration-500">
               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
-              <VideoPlaceholder videoId={step.videoId} />
+              <VideoPlaceholder videoId={step.videoId} onOpen={() => step.videoId && onOpenVideo(step.videoId)} />
             </div>
           </div>
         )}
@@ -136,7 +223,7 @@ function TimelineStop({ step, index }: { step: (typeof steps)[0]; index: number 
             <div className="bg-gradient-to-br from-gray-900 to-black border border-green-500/20 rounded-2xl p-6 shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:border-green-500/40 hover:shadow-[0_0_50px_rgba(34,197,94,0.08)] transition-all duration-500">
               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
-              <VideoPlaceholder videoId={step.videoId} />
+              <VideoPlaceholder videoId={step.videoId} onOpen={() => step.videoId && onOpenVideo(step.videoId)} />
             </div>
           </div>
         )}
@@ -146,7 +233,7 @@ function TimelineStop({ step, index }: { step: (typeof steps)[0]; index: number 
         <div className="bg-gradient-to-br from-gray-900 to-black border border-green-500/20 rounded-2xl p-5 shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:border-green-500/40 transition-all duration-500">
           <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
           <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
-          <VideoPlaceholder />
+          <VideoPlaceholder videoId={step.videoId} onOpen={() => step.videoId && onOpenVideo(step.videoId)} />
         </div>
       </div>
     </div>
@@ -156,6 +243,7 @@ function TimelineStop({ step, index }: { step: (typeof steps)[0]; index: number 
 export default function RoadmapSection() {
   const { ref: titleRef, inView: titleInView } = useInView(0.3);
   const { ref: closingRef, inView: closingInView } = useInView(0.2);
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   return (
     <section className="relative py-24 md:py-36 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -191,7 +279,7 @@ export default function RoadmapSection() {
 
           <div className="relative pl-8 md:pl-0">
             {steps.map((step, index) => (
-              <TimelineStop key={step.number} step={step} index={index} />
+              <TimelineStop key={step.number} step={step} index={index} onOpenVideo={setActiveVideoId} />
             ))}
           </div>
 
@@ -232,6 +320,10 @@ export default function RoadmapSection() {
           </div>
         </div>
       </div>
+
+      {activeVideoId && (
+        <VideoModal videoId={activeVideoId} onClose={() => setActiveVideoId(null)} />
+      )}
 
       <style>{`
         @keyframes energy-flow {
