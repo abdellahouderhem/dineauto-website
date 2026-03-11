@@ -41,6 +41,7 @@ const steps = [
     title: 'Step 5 — Customer Comeback System',
     description:
       'Automated personalized offers bring customers back again and again. More visits. More revenue. Higher lifetime value.',
+    videoId: 'hAq5WfbFCHY',
   },
 ];
 
