@@ -25,6 +25,7 @@ const steps = [
     title: 'Step 3 — 24/7 AI Reservation Machine',
     description:
       'Our AI answers questions and handles bookings around the clock. No missed calls. No lost reservations.',
+    videoId: 'YOE9HlHGPfM',
   },
   {
     number: 4,
