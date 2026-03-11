@@ -33,6 +33,7 @@ const steps = [
     title: 'Step 4 — Automatic Review Generation',
     description:
       'After every visit automatic review requests go out. Our AI responds. More 5-stars means stronger SEO and more trust.',
+    videoId: 'XfaV4bFYZvw',
   },
   {
     number: 5,
