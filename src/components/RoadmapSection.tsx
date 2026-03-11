@@ -9,6 +9,7 @@ const steps = [
     title: 'Step 1 — Professional Content',
     description:
       'You snap a photo with your phone. We turn it into studio-quality videos with custom music.',
+    videoId: 'mTkwVCrEI-M',
   },
   {
     number: 2,
@@ -54,22 +55,34 @@ function useInView(threshold = 0.25) {
   return { ref, inView };
 }
 
-function VideoPlaceholder() {
+function VideoPlaceholder({ videoId }: { videoId?: string }) {
   return (
     <div className="relative group mt-5">
       <div className="absolute -inset-3 rounded-2xl bg-green-500/20 blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700 animate-breathe" />
       <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-green-500/30 via-green-400/20 to-green-500/30 blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
       <div className="relative bg-gradient-to-br from-gray-900 via-gray-900 to-black border border-green-500/25 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(34,197,94,0.1)] group-hover:shadow-[0_0_60px_rgba(34,197,94,0.2)] transition-shadow duration-500">
         <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-green-500/5" />
-        <div className="aspect-video flex items-center justify-center relative">
-          <div className="text-center z-10">
-            <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center group-hover:bg-green-500/25 transition-all duration-300">
-              <Play className="text-green-400 ml-0.5" size={22} fill="currentColor" />
+        <div className="aspect-video relative">
+          {videoId ? (
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0`}
+              title="DineAuto Step Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="text-center z-10">
+                <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center group-hover:bg-green-500/25 transition-all duration-300">
+                  <Play className="text-green-400 ml-0.5" size={22} fill="currentColor" />
+                </div>
+                <p className="text-gray-500 text-xs font-semibold tracking-widest uppercase">
+                  Video Coming Soon
+                </p>
+              </div>
             </div>
-            <p className="text-gray-500 text-xs font-semibold tracking-widest uppercase">
-              Video Coming Soon
-            </p>
-          </div>
+          )}
         </div>
       </div>
       <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-2/3 h-4 bg-green-500/10 rounded-full blur-2xl" />
@@ -77,7 +90,7 @@ function VideoPlaceholder() {
   );
 }
 
-function TimelineStop({ step, index }: { step: typeof steps[0]; index: number }) {
+function TimelineStop({ step, index }: { step: (typeof steps)[0]; index: number }) {
   const { ref, inView } = useInView(0.2);
   const isRight = step.side === 'right';
 
@@ -95,7 +108,7 @@ function TimelineStop({ step, index }: { step: typeof steps[0]; index: number })
             <div className="bg-gradient-to-br from-gray-900 to-black border border-green-500/20 rounded-2xl p-6 shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:border-green-500/40 hover:shadow-[0_0_50px_rgba(34,197,94,0.08)] transition-all duration-500">
               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
-              <VideoPlaceholder />
+              <VideoPlaceholder videoId={step.videoId} />
             </div>
           </div>
         )}
@@ -119,7 +132,7 @@ function TimelineStop({ step, index }: { step: typeof steps[0]; index: number })
             <div className="bg-gradient-to-br from-gray-900 to-black border border-green-500/20 rounded-2xl p-6 shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:border-green-500/40 hover:shadow-[0_0_50px_rgba(34,197,94,0.08)] transition-all duration-500">
               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
-              <VideoPlaceholder />
+              <VideoPlaceholder videoId={step.videoId} />
             </div>
           </div>
         )}
