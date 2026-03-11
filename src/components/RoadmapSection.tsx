@@ -89,9 +89,8 @@ function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void
       onClick={handleClose}
     >
       <div
-        className="relative w-full"
+        className="relative w-full max-w-[95vw] md:max-w-[60vw]"
         style={{
-          maxWidth: '60vw',
           transform: visible ? 'scale(1)' : 'scale(0.85)',
           opacity: visible ? 1 : 0,
           transition: 'transform 320ms cubic-bezier(0.34,1.56,0.64,1), opacity 300ms ease',
