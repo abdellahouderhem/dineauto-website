@@ -93,7 +93,7 @@ export default function About() {
                 <h3 className="text-2xl font-bold text-white mb-3">Leadership</h3>
                 <div className="space-y-2">
                   <div className="text-white font-semibold text-lg">Abdellah Ait-Ali-Ouderhem</div>
-                  <div className="text-amber-400">Founder & Organizer, DineAuto LLC</div>
+                  <div className="text-amber-400">Founder & Organizer, DARYA LLC</div>
                   <p className="text-gray-300 text-sm mt-3">
                     Expert in marketing automation, AI implementation, and strategic growth systems for restaurants.
                   </p>
@@ -125,7 +125,7 @@ export default function About() {
               <p><strong className="text-white">Address:</strong> 30 N Gould St Ste R, Sheridan, WY 82801</p>
               <p><strong className="text-white">Email:</strong> <a href="mailto:support@dineauto.com" className="text-amber-400 hover:text-amber-300">support@dineauto.com</a></p>
               <p><strong className="text-white">Phone (SMS):</strong> <a href="sms:+19179470263" className="text-amber-400 hover:text-amber-300">+1 (917) 947-0263</a></p>
-              <p><strong className="text-white">WhatsApp:</strong> <a href="https://wa.me/212656152114" target=\"_blank" rel="noopener noreferrer\" className="text-amber-400 hover:text-amber-300">+212 656-152114</a></p>
+              <p><strong className="text-white">WhatsApp:</strong> <a href="https://wa.me/212656152114" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300">+212 656-152114</a></p>
             </div>
           </div>
         </div>
