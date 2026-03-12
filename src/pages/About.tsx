@@ -93,7 +93,7 @@ export default function About() {
                 <h3 className="text-2xl font-bold text-white mb-3">Leadership</h3>
                 <div className="space-y-2">
                   <div className="text-white font-semibold text-lg">Abdellah Ait-Ali-Ouderhem</div>
-                  <div className="text-amber-400">Founder & Organizer, DARYA LLC</div>
+                  <div className="text-amber-400">Founder & Organizer, DineAuto LLC</div>
                   <p className="text-gray-300 text-sm mt-3">
                     Expert in marketing automation, AI implementation, and strategic growth systems for restaurants.
                   </p>
