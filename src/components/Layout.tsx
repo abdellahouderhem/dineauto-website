@@ -188,7 +188,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h3 className="text-white font-bold mb-6 text-lg">Follow Us</h3>
               <div className="space-y-3">
                 {[
-                  { href: 'https://www.instagram.com/abdellah_aao/', label: 'Instagram' },
+                  { href: 'https://www.instagram.com/dine_auto/', label: 'Instagram' },
                   { href: 'https://x.com/abduouderhem', label: 'X (Twitter)' },
                   { href: 'https://www.facebook.com/profile.php?id=61585765130166', label: 'Facebook' },
                   { href: 'https://www.youtube.com/@Dine-Auto', label: 'YouTube' },
