@@ -284,6 +284,24 @@
     animation: scan 2s linear infinite;
   }
 
+  @keyframes marquee {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--gap))); }
+  }
+
+  @keyframes marquee-reverse {
+    from { transform: translateY(calc(-100% - var(--gap))); }
+    to { transform: translateY(0); }
+  }
+
+  .animate-marquee-vertical {
+    animation: marquee var(--duration) linear infinite;
+  }
+
+  .animate-marquee-vertical-reverse {
+    animation: marquee-reverse var(--duration) linear infinite;
+  }
+
   /* Disable animations for users who prefer reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .animate-float,
@@ -299,7 +317,9 @@
     .animate-orbital-reverse,
     .animate-shimmer,
     .animate-data-stream,
-    .animate-scan {
+    .animate-scan,
+    .animate-marquee-vertical,
+    .animate-marquee-vertical-reverse {
       animation: none !important;
     }
   }

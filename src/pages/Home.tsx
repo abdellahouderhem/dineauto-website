@@ -26,6 +26,7 @@ import RoadmapSection from '../components/RoadmapSection';
 import ScarcityVideoSection from '../components/ScarcityVideoSection';
 import PhilosophySection from '../components/PhilosophySection';
 import GuaranteeSection from '../components/GuaranteeSection';
+import TestimonialsMarquee from '../components/TestimonialsMarquee';
 
 const aiServices = [
   {
@@ -252,6 +253,8 @@ export default function Home() {
       </section>
 
       <CaseStudiesSection />
+
+      <TestimonialsMarquee />
 
       <ScarcityVideoSection />
 
