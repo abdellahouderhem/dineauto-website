@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import * as Avatar from '@radix-ui/react-avatar';
 
 const testimonials = [
@@ -133,11 +134,17 @@ interface MarqueeColumnProps {
 }
 
 function MarqueeColumn({ items, reverse = false, duration = '35s' }: MarqueeColumnProps) {
+  const [hovered, setHovered] = useState(false);
   const animationClass = reverse ? 'animate-marquee-vertical-reverse' : 'animate-marquee-vertical';
-  const repeated = Array.from({ length: 6 }, () => items).flat();
+  const repeated = Array.from({ length: 7 }, () => items).flat();
 
   return (
-    <div className="group/col relative flex-1 overflow-hidden" style={{ maxHeight: '600px' }}>
+    <div
+      className="relative flex-1 overflow-hidden"
+      style={{ maxHeight: '600px', pointerEvents: 'auto' }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-gray-950 to-transparent z-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-950 to-transparent z-10 pointer-events-none" />
 
@@ -145,7 +152,10 @@ function MarqueeColumn({ items, reverse = false, duration = '35s' }: MarqueeColu
         className="flex flex-col"
         style={{ '--gap': '16px', '--duration': duration } as React.CSSProperties}
       >
-        <div className={`flex flex-col gap-4 ${animationClass} group-hover/col:[animation-play-state:paused]`}>
+        <div
+          className={`flex flex-col gap-4 ${animationClass}`}
+          style={{ animationPlayState: hovered ? 'paused' : 'running' }}
+        >
           {repeated.map((item, idx) => (
             <TestimonialMarqueeCard key={`${item.username}-${idx}`} {...item} />
           ))}
@@ -182,15 +192,20 @@ export default function TestimonialsMarquee() {
             style={{
               transform: 'rotateX(8deg) rotateY(-5deg)',
               transformStyle: 'preserve-3d',
+              pointerEvents: 'none',
             }}
           >
-            <MarqueeColumn items={columns[0]} duration="30s" />
-            <MarqueeColumn items={columns[1]} reverse duration="34s" />
-            <div className="hidden sm:block">
-              <MarqueeColumn items={columns[2]} duration="32s" />
+            <div style={{ pointerEvents: 'auto' }}>
+              <MarqueeColumn items={columns[0]} duration="80s" />
             </div>
-            <div className="hidden lg:block">
-              <MarqueeColumn items={columns[3]} reverse duration="36s" />
+            <div style={{ pointerEvents: 'auto' }}>
+              <MarqueeColumn items={columns[1]} reverse duration="88s" />
+            </div>
+            <div className="hidden sm:block" style={{ pointerEvents: 'auto' }}>
+              <MarqueeColumn items={columns[2]} duration="84s" />
+            </div>
+            <div className="hidden lg:block" style={{ pointerEvents: 'auto' }}>
+              <MarqueeColumn items={columns[3]} reverse duration="92s" />
             </div>
           </div>
         </div>
