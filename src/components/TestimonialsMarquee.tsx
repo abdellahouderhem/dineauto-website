@@ -134,9 +134,10 @@ interface MarqueeColumnProps {
 
 function MarqueeColumn({ items, reverse = false, duration = '35s' }: MarqueeColumnProps) {
   const animationClass = reverse ? 'animate-marquee-vertical-reverse' : 'animate-marquee-vertical';
+  const repeated = Array.from({ length: 6 }, () => items).flat();
 
   return (
-    <div className="relative flex-1 overflow-hidden" style={{ maxHeight: '600px' }}>
+    <div className="group/col relative flex-1 overflow-hidden" style={{ maxHeight: '600px' }}>
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-gray-950 to-transparent z-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-950 to-transparent z-10 pointer-events-none" />
 
@@ -144,8 +145,8 @@ function MarqueeColumn({ items, reverse = false, duration = '35s' }: MarqueeColu
         className="flex flex-col"
         style={{ '--gap': '16px', '--duration': duration } as React.CSSProperties}
       >
-        <div className={`flex flex-col gap-4 ${animationClass}`}>
-          {[...items, ...items].map((item, idx) => (
+        <div className={`flex flex-col gap-4 ${animationClass} group-hover/col:[animation-play-state:paused]`}>
+          {repeated.map((item, idx) => (
             <TestimonialMarqueeCard key={`${item.username}-${idx}`} {...item} />
           ))}
         </div>
