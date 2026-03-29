@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, UtensilsCrossed } from 'lucide-react';
 import { useState } from 'react';
 import DramaticBackground from './DramaticBackground';
+import MobileParticleCanvas from './MobileParticleCanvas';
 import PremiumButton from './PremiumButton';
 import ExitIntentEbookModal, { useExitIntent } from './ExitIntentEbookModal';
 
@@ -16,6 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-black text-white relative">
+      <MobileParticleCanvas />
       <DramaticBackground />
 
       <nav className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8">

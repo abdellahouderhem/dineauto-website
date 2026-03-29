@@ -53,7 +53,7 @@ export default function DramaticBackground() {
   const shouldAnimate = isVisible && !prefersReducedMotion;
 
   return (
-    <div ref={containerRef} className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div ref={containerRef} className="fixed inset-0 overflow-hidden pointer-events-none z-0 hidden md:block">
       <div className="absolute inset-0 bg-black" />
 
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(6,182,212,0.15),transparent_50%)]" />
