@@ -5,14 +5,15 @@ interface Particle {
   y: number;
   vx: number;
   vy: number;
+  radius: number;
 }
 
-const PARTICLE_COUNT = 55;
-const CONNECTION_DISTANCE = 90;
-const DRIFT_SPEED = 0.18;
-const PARTICLE_RADIUS = 1.8;
-const PARTICLE_COLOR = 'rgba(0, 255, 133, 0.15)';
-const LINE_COLOR = 'rgba(0, 255, 133, 0.04)';
+const PARTICLE_COUNT = 80;
+const CONNECTION_DISTANCE = 120;
+const DRIFT_SPEED = 0.4;
+const PARTICLE_COLOR = 'rgba(0, 255, 133, 0.55)';
+const LINE_COLOR = 'rgba(0, 255, 133, 0.15)';
+const BG_COLOR = '#080c08';
 
 export default function MobileParticleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -32,7 +33,7 @@ export default function MobileParticleCanvas() {
 
     const resize = () => {
       canvas.width = window.innerWidth;
-      canvas.height = document.documentElement.scrollHeight;
+      canvas.height = window.innerHeight;
     };
 
     resize();
@@ -44,11 +45,13 @@ export default function MobileParticleCanvas() {
         y: Math.random() * canvas.height,
         vx: Math.cos(angle) * DRIFT_SPEED,
         vy: Math.sin(angle) * DRIFT_SPEED,
+        radius: 1.5 + Math.random() * 1.5,
       });
     }
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = BG_COLOR;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.strokeStyle = LINE_COLOR;
       ctx.lineWidth = 1;
@@ -69,7 +72,7 @@ export default function MobileParticleCanvas() {
       ctx.fillStyle = PARTICLE_COLOR;
       for (const p of particles) {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, PARTICLE_RADIUS, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
 
         p.x += p.vx;
@@ -86,23 +89,34 @@ export default function MobileParticleCanvas() {
 
     animate();
 
-    const onResize = () => resize();
-    window.addEventListener('resize', onResize);
+    window.addEventListener('resize', resize);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener('resize', resize);
     };
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 md:hidden" style={{ backgroundColor: '#080c08' }}>
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+    <div
+      className="fixed inset-0 z-0 md:hidden"
+      style={{ backgroundColor: BG_COLOR }}
+    >
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+        }}
+      />
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="fixed inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at center top, rgba(0,255,120,0.06), transparent 65%)',
+            'radial-gradient(ellipse at center top, rgba(0,255,120,0.18), transparent 60%)',
         }}
       />
     </div>

@@ -102,9 +102,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </nav>
 
-      <main className="relative pt-20 md:pt-32">{children}</main>
+      <main className="relative z-[1] pt-20 md:pt-32">{children}</main>
 
-      <footer className="relative mt-32 border-t border-cyan-500/20 bg-black/70 backdrop-blur-xl">
+      <footer className="relative z-[1] mt-32 border-t border-cyan-500/20 bg-black/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
             <div className="lg:col-span-1">
