@@ -21,6 +21,7 @@ import {
 import FloatingCard from '../components/FloatingCard';
 import PremiumButton from '../components/PremiumButton';
 import SectionTitle from '../components/SectionTitle';
+import { Helmet } from 'react-helmet-async';
 
 export default function Services() {
   const aiServices = [
@@ -118,6 +119,15 @@ export default function Services() {
 
   return (
     <div className="relative">
+      <Helmet>
+        <title>AI Services for Restaurants — DineAuto</title>
+        <meta name="description" content="AI chatbots, voice assistants, paid ads, review automation, and booking systems built exclusively for independent restaurant owners." />
+        <link rel="canonical" href="https://dineauto.com/services" />
+        <meta property="og:title" content="AI Services for Restaurants — DineAuto" />
+        <meta property="og:description" content="AI chatbots, voice assistants, paid ads, review automation, and booking systems built exclusively for independent restaurant owners." />
+        <meta property="og:url" content="https://dineauto.com/services" />
+      </Helmet>
+
       <section className="relative py-16 md:py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">

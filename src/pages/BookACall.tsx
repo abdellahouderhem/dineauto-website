@@ -1,10 +1,20 @@
 import { Calendar, CheckCircle, MessageCircle, Clock, Shield, Zap } from 'lucide-react';
 import PremiumButton from '../components/PremiumButton';
 import CalInlineEmbed from '../components/CalInlineEmbed';
+import { Helmet } from 'react-helmet-async';
 
 export default function BookACall() {
   return (
     <div className="relative">
+      <Helmet>
+        <title>Book a Free Strategy Call — DineAuto</title>
+        <meta name="description" content="Book a free 30-minute strategy call with DineAuto. Discover exactly where AI can add the most revenue to your restaurant — no sales pressure, just real insights." />
+        <link rel="canonical" href="https://dineauto.com/book-a-call" />
+        <meta property="og:title" content="Book a Free Strategy Call — DineAuto" />
+        <meta property="og:description" content="Book a free 30-minute strategy call. Discover where AI can add the most revenue to your restaurant." />
+        <meta property="og:url" content="https://dineauto.com/book-a-call" />
+      </Helmet>
+
       <section className="relative py-20 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}

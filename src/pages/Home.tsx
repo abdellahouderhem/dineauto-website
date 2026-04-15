@@ -26,6 +26,7 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import PhilosophySection from '../components/PhilosophySection';
 import GuaranteeSection from '../components/GuaranteeSection';
 import TestimonialsMarquee from '../components/TestimonialsMarquee';
+import { Helmet } from 'react-helmet-async';
 
 const aiServices = [
   {
@@ -121,6 +122,15 @@ export default function Home() {
 
   return (
     <div className="relative overflow-hidden">
+      <Helmet>
+        <title>DineAuto — AI Growth System for Restaurants</title>
+        <meta name="description" content="DineAuto automates your restaurant's marketing, bookings, and reviews with AI — saving owners 20–40 hours/month. Done-for-you systems, real results." />
+        <link rel="canonical" href="https://dineauto.com/" />
+        <meta property="og:title" content="DineAuto — AI Growth System for Restaurants" />
+        <meta property="og:description" content="DineAuto automates your restaurant's marketing, bookings, and reviews with AI — saving owners 20–40 hours/month." />
+        <meta property="og:url" content="https://dineauto.com/" />
+      </Helmet>
+
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 -left-48 w-96 h-96 bg-amber-500/20 rounded-full blur-[100px] animate-pulse hidden md:block" />

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, Sparkles, Zap, Shield, Clock, TrendingUp, MessageCircle, Phone, Mail, Calendar } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import ScrollAnimation from '../components/ScrollAnimation';
 import SectionTitle from '../components/SectionTitle';
 
@@ -116,6 +117,24 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>FAQ — DineAuto AI Automation for Restaurants</title>
+        <meta name="description" content="Answers to the most common questions about DineAuto's AI automation systems — setup time, contract terms, results, and how it works for your restaurant." />
+        <link rel="canonical" href="https://dineauto.com/faq" />
+        <meta property="og:title" content="FAQ — DineAuto AI Automation for Restaurants" />
+        <meta property="og:description" content="Answers to the most common questions about DineAuto's AI automation systems for restaurants." />
+        <meta property="og:url" content="https://dineauto.com/faq" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(f => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+          }))
+        })}</script>
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-transparent" />

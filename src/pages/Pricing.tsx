@@ -1,6 +1,7 @@
 import { Check, Zap, TrendingUp, Rocket, ArrowRight } from 'lucide-react';
 import PremiumButton from '../components/PremiumButton';
 import SectionTitle from '../components/SectionTitle';
+import { Helmet } from 'react-helmet-async';
 
 export default function Pricing() {
   const plans = [
@@ -56,6 +57,15 @@ export default function Pricing() {
 
   return (
     <div className="relative">
+      <Helmet>
+        <title>Pricing & Packages — DineAuto</title>
+        <meta name="description" content="Transparent AI automation pricing for restaurant owners. Choose Launch, Growth, or Scale — all plans include done-for-you setup and dedicated support." />
+        <link rel="canonical" href="https://dineauto.com/pricing" />
+        <meta property="og:title" content="Pricing & Packages — DineAuto" />
+        <meta property="og:description" content="Transparent AI automation pricing for restaurant owners. Choose Launch, Growth, or Scale — all plans include done-for-you setup." />
+        <meta property="og:url" content="https://dineauto.com/pricing" />
+      </Helmet>
+
       <section className="relative py-16 md:py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -93,7 +103,7 @@ export default function Pricing() {
                       <Icon className="text-amber-400" size={32} />
                     </div>
                     <div>
-                      <h3 className="text-3xl font-bold text-white">{plan.name}</h3>
+                      <h2 className="text-3xl font-bold text-white">{plan.name}</h2>
                       <p className="text-amber-400 font-semibold">{plan.tagline}</p>
                     </div>
                   </div>

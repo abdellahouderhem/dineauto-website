@@ -2,6 +2,7 @@ import { Target, Zap, BarChart, Shield, Sparkles, ArrowRight } from 'lucide-reac
 import FloatingCard from '../components/FloatingCard';
 import PremiumButton from '../components/PremiumButton';
 import SectionTitle from '../components/SectionTitle';
+import { Helmet } from 'react-helmet-async';
 
 export default function About() {
   const whyDineAuto = [
@@ -33,6 +34,15 @@ export default function About() {
 
   return (
     <div className="relative">
+      <Helmet>
+        <title>About DineAuto — Built for Restaurant Owners</title>
+        <meta name="description" content="DineAuto was built by a restaurant-focused marketer obsessed with AI systems. Learn why independent restaurants worldwide trust us to automate their growth." />
+        <link rel="canonical" href="https://dineauto.com/about" />
+        <meta property="og:title" content="About DineAuto — Built for Restaurant Owners" />
+        <meta property="og:description" content="DineAuto was built by a restaurant-focused marketer obsessed with AI systems. Learn why independent restaurants worldwide trust us." />
+        <meta property="og:url" content="https://dineauto.com/about" />
+      </Helmet>
+
       <section className="relative py-16 md:py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -81,7 +91,7 @@ export default function About() {
             <div className="space-y-6">
               <div className="p-10 rounded-3xl bg-black/40 backdrop-blur-xl border-2 border-amber-400/40 shadow-[0_0_60px_rgba(251,191,36,0.15)]">
                 <Sparkles className="text-amber-400 mb-4" size={40} />
-                <h3 className="text-2xl font-bold text-white mb-3">Our Mission</h3>
+                <h2 className="text-2xl font-bold text-white mb-3">Our Mission</h2>
                 <p className="text-gray-300 leading-relaxed text-lg">
                   Empower restaurant owners with AI-powered automation and marketing systems that drive real
                   growth — more reservations, repeat guests, and revenue while freeing up time to focus on great
@@ -90,7 +100,7 @@ export default function About() {
               </div>
 
               <div className="p-10 rounded-3xl bg-black/40 backdrop-blur-xl border-2 border-amber-400/40 shadow-[0_0_60px_rgba(251,191,36,0.15)]">
-                <h3 className="text-2xl font-bold text-white mb-3">Leadership</h3>
+                <h2 className="text-2xl font-bold text-white mb-3">Leadership</h2>
                 <div className="space-y-2">
                   <div className="text-white font-semibold text-lg">Abdellah Ait-Ali-Ouderhem</div>
                   <div className="text-amber-400">Founder & Organizer, DARYA LLC</div>
