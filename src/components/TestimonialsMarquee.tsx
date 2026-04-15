@@ -86,8 +86,8 @@ function TestimonialMarqueeCard({ name, username, body, img, country }: Testimon
   return (
     <div className="group relative rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02]"
       style={{
-        background: 'rgba(255,255,255,0.05)',
-        border: '1px solid rgba(0,255,100,0.15)',
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(0,255,133,0.12)',
       }}
     >
       <div className="flex items-center gap-3 mb-4">
@@ -113,11 +113,11 @@ function TestimonialMarqueeCard({ name, username, body, img, country }: Testimon
         </div>
       </div>
 
-      <p className="text-sm leading-relaxed text-gray-300 mb-3">
+      <p className="text-sm leading-relaxed mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
         "{body}"
       </p>
 
-      <div className="flex items-center gap-1.5 text-xs text-green-400/70">
+      <div className="flex items-center gap-1.5 text-xs" style={{ color: '#00FF85' }}>
         <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
         </svg>
@@ -145,8 +145,8 @@ function MarqueeColumn({ items, reverse = false, duration = '35s' }: MarqueeColu
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-gray-950 to-transparent z-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-950 to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to bottom, #080c08, transparent)' }} />
+      <div className="absolute bottom-0 left-0 right-0 h-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to top, #080c08, transparent)' }} />
 
       <div
         className="flex flex-col"
@@ -167,11 +167,8 @@ function MarqueeColumn({ items, reverse = false, duration = '35s' }: MarqueeColu
 
 export default function TestimonialsMarquee() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden" style={{ background: 'linear-gradient(to bottom, rgb(3,7,18), rgb(5,10,24), rgb(3,7,18))' }}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 -left-32 w-64 h-64 bg-green-500/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/3 -right-32 w-64 h-64 bg-green-500/8 rounded-full blur-[120px]" />
-      </div>
+    <section className="relative py-24 md:py-32 overflow-hidden" style={{ background: '#080c08' }}>
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,255,133,0.05), transparent 70%)' }} />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">

@@ -21,9 +21,8 @@ import {
 import FloatingCard from '../components/FloatingCard';
 import PremiumButton from '../components/PremiumButton';
 import SectionTitle from '../components/SectionTitle';
-import CaseStudiesSection from '../components/CaseStudiesSection';
 import RoadmapSection from '../components/RoadmapSection';
-import ScarcityVideoSection from '../components/ScarcityVideoSection';
+import TestimonialsSection from '../components/TestimonialsSection';
 import PhilosophySection from '../components/PhilosophySection';
 import GuaranteeSection from '../components/GuaranteeSection';
 import TestimonialsMarquee from '../components/TestimonialsMarquee';
@@ -174,6 +173,10 @@ export default function Home() {
 
       <RoadmapSection />
 
+      <TestimonialsSection />
+
+      <TestimonialsMarquee />
+
       <PhilosophySection />
 
       <GuaranteeSection />
@@ -251,12 +254,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <CaseStudiesSection />
-
-      <TestimonialsMarquee />
-
-      <ScarcityVideoSection />
 
       <section className="relative py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
