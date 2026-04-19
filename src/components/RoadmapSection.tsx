@@ -140,7 +140,7 @@ function VideoPlaceholder({ videoId, onOpen }: { videoId?: string; onOpen?: () =
             >
               <img
                 src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                alt="Video thumbnail"
+                alt="Watch DineAuto — AI automation system for restaurants case study video"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover"
