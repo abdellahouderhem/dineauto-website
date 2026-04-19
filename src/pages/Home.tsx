@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import {
   Bot,
   PhoneCall,
@@ -15,18 +16,18 @@ import {
   Calendar,
   Gift,
   CheckCircle,
-  Sparkles,
   ArrowRight,
 } from 'lucide-react';
 import FloatingCard from '../components/FloatingCard';
 import PremiumButton from '../components/PremiumButton';
 import SectionTitle from '../components/SectionTitle';
-import RoadmapSection from '../components/RoadmapSection';
-import TestimonialsSection from '../components/TestimonialsSection';
-import PhilosophySection from '../components/PhilosophySection';
-import GuaranteeSection from '../components/GuaranteeSection';
-import TestimonialsMarquee from '../components/TestimonialsMarquee';
 import { Helmet } from 'react-helmet-async';
+
+const RoadmapSection = lazy(() => import('../components/RoadmapSection'));
+const TestimonialsSection = lazy(() => import('../components/TestimonialsSection'));
+const TestimonialsMarquee = lazy(() => import('../components/TestimonialsMarquee'));
+const PhilosophySection = lazy(() => import('../components/PhilosophySection'));
+const GuaranteeSection = lazy(() => import('../components/GuaranteeSection'));
 
 const aiServices = [
   {
@@ -181,15 +182,25 @@ export default function Home() {
         </div>
       </section>
 
-      <RoadmapSection />
+      <Suspense fallback={null}>
+        <RoadmapSection />
+      </Suspense>
 
-      <TestimonialsSection />
+      <Suspense fallback={null}>
+        <TestimonialsSection />
+      </Suspense>
 
-      <TestimonialsMarquee />
+      <Suspense fallback={null}>
+        <TestimonialsMarquee />
+      </Suspense>
 
-      <PhilosophySection />
+      <Suspense fallback={null}>
+        <PhilosophySection />
+      </Suspense>
 
-      <GuaranteeSection />
+      <Suspense fallback={null}>
+        <GuaranteeSection />
+      </Suspense>
 
       <section className="relative py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

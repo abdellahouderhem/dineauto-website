@@ -12,7 +12,7 @@ interface Client {
 
 const clients: Client[] = [
   {
-    photo: '/testimonials/social proof/client1.jpg.png',
+    photo: '/testimonials/social proof/client1.webp',
     audio: '/testimonials/social proof/client1.mp3.MP3',
     name: 'Karim R.',
     restaurant: 'Al Bahar Restaurant',
@@ -20,7 +20,7 @@ const clients: Client[] = [
     photoLeft: true,
   },
   {
-    photo: '/testimonials/social proof/client2.jpg.png',
+    photo: '/testimonials/social proof/client2.webp',
     audio: '/testimonials/social proof/client2.mp3.MP3',
     name: 'James T.',
     restaurant: 'The Copper Plate',
@@ -28,7 +28,7 @@ const clients: Client[] = [
     photoLeft: false,
   },
   {
-    photo: '/testimonials/social proof/client3.jpg.png',
+    photo: '/testimonials/social proof/client3.webp',
     audio: '/testimonials/social proof/client3.mp3.MP3',
     name: 'Sofia M.',
     restaurant: 'Warung Sari',
@@ -36,7 +36,7 @@ const clients: Client[] = [
     photoLeft: true,
   },
   {
-    photo: '/testimonials/social proof/client4.jpg.png',
+    photo: '/testimonials/social proof/client4.webp',
     audio: '/testimonials/social proof/client4.mp3.MP3',
     name: 'Michelle K.',
     restaurant: 'Harbor Bites',
@@ -109,7 +109,7 @@ function AudioPlayer({ src }: { src: string }) {
       <audio
         ref={audioRef}
         src={src}
-        preload="auto"
+        preload="none"
         crossOrigin="anonymous"
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
@@ -255,7 +255,9 @@ function ClientCard({ client, index }: { client: Client; index: number }) {
         }}>
           <img
             src={client.photo}
-            alt={client.name}
+            alt={`${client.name} - ${client.restaurant}`}
+            loading="lazy"
+            decoding="async"
             style={{
               width: '100%',
               height: '100%',
