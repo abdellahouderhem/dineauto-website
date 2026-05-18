@@ -39,7 +39,7 @@ export default function PhilosophySection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative py-14 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* 3D Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

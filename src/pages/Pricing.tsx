@@ -129,7 +129,7 @@ export default function Pricing() {
                   </div>
 
                   <PremiumButton
-                    to="/book-a-call"
+                    href="https://funnel.dineauto.com"
                     variant={plan.highlighted ? 'primary' : 'ghost'}
                     className="!w-full !justify-center"
                   >
@@ -184,8 +184,8 @@ export default function Pricing() {
                 Book a free 30-minute call. We'll analyze your situation and show you exactly what's possible
                 with DineAuto.
               </p>
-              <PremiumButton to="/book-a-call" variant="primary" icon={ArrowRight} className="!text-xl">
-                Book a Free Strategy Call
+              <PremiumButton href="https://funnel.dineauto.com" variant="primary" icon={ArrowRight} className="!text-xl">
+                See How We Help Restaurants Grow
               </PremiumButton>
             </div>
           </div>

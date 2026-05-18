@@ -170,7 +170,7 @@ export default function GuaranteeSection() {
   ];
 
   return (
-    <section className="relative min-h-screen py-20 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
+    <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
       {/* Deep space background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/20 via-black to-black" />
 
@@ -248,11 +248,11 @@ export default function GuaranteeSection() {
         <div className="text-center animate-fade-in-up" style={{ animationDelay: '2s' }}>
           <div className="inline-block">
             <PremiumButton
-              to="/book-a-call"
+              href="https://funnel.dineauto.com"
               variant="primary"
               className="text-base lg:text-lg px-10 lg:px-14 py-4 lg:py-5 shadow-[0_0_40px_rgba(52,211,153,0.3)] hover:shadow-[0_0_60px_rgba(52,211,153,0.5)] transition-all duration-500"
             >
-              Book a Free Strategy Call
+              See How We Help Restaurants Grow →
             </PremiumButton>
             <p className="text-slate-400 text-sm mt-4">
               No pressure. No commitment. Just clarity.

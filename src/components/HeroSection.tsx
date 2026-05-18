@@ -26,15 +26,16 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/book-a-call"
+              <a
+                href="https://funnel.dineauto.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold rounded-xl hover:from-amber-400 hover:to-amber-500 transition-all duration-300 shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] text-center transform hover:scale-105"
               >
                 <span className="flex items-center justify-center gap-2">
-                  Book a Free Strategy Call
-                  <TrendingUp className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  See How We Help Restaurants Grow →
                 </span>
-              </Link>
+              </a>
               <button className="hidden sm:block px-8 py-4 neon-border text-amber-400 font-bold rounded-xl hover:bg-amber-500/10 transition-all duration-300 backdrop-blur-sm transform hover:scale-105">
                 Watch 2-Min Overview
               </button>

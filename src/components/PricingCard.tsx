@@ -47,16 +47,18 @@ export default function PricingCard({ plan, tagline, description, features, high
         </p>
       </div>
 
-      <Link
-        to="/book-a-call"
+      <a
+        href="https://funnel.dineauto.com"
+        target="_blank"
+        rel="noopener noreferrer"
         className={`block w-full py-4 text-center font-semibold rounded-lg transition-all ${
           highlighted
             ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 hover:from-amber-400 hover:to-amber-500 shadow-lg shadow-amber-500/30'
             : 'bg-slate-700 text-white hover:bg-slate-600'
         }`}
       >
-        Book a Free Strategy Call
-      </Link>
+        Get Started
+      </a>
     </div>
   );
 }

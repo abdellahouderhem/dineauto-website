@@ -1,10 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, UtensilsCrossed } from 'lucide-react';
 import { useState } from 'react';
-import DramaticBackground from './DramaticBackground';
-import MobileParticleCanvas from './MobileParticleCanvas';
 import PremiumButton from './PremiumButton';
 import ExitIntentEbookModal, { useExitIntent } from './ExitIntentEbookModal';
+import ParticleBackground from './ParticleBackground';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,10 +15,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen bg-black text-white relative">
-      <MobileParticleCanvas />
-      <DramaticBackground />
-
+    <div className="min-h-screen text-white relative">
+      <ParticleBackground />
       <nav className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-[1400px] mx-auto bg-black/40 backdrop-blur-xl rounded-full shadow-[0_8px_40px_rgba(0,0,0,0.5)] border border-cyan-500/20 px-4 sm:px-6 md:px-8 py-3 sm:py-4">
           <div className="flex justify-between items-center">
@@ -52,12 +49,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
 
-              <Link
-                to="/book-a-call"
+              <a
+                href="https://funnel.dineauto.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-3 bg-gradient-to-r from-amber-400 to-green-500 text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:scale-105 transition-all duration-300"
               >
-                Book Intro Call
-              </Link>
+                Get Started
+              </a>
             </div>
 
             <button
@@ -90,19 +89,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                to="/book-a-call"
+              <a
+                href="https://funnel.dineauto.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-center px-8 py-3 bg-gradient-to-r from-amber-400 to-green-500 text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] transition-all duration-300"
               >
-                Book Intro Call
-              </Link>
+                Get Started
+              </a>
             </div>
           </div>
         )}
       </nav>
 
-      <main className="relative z-[1] pt-20 md:pt-32">{children}</main>
+      <main className="relative z-[1] pt-14 md:pt-20">{children}</main>
 
       <footer className="relative z-[1] mt-32 border-t border-cyan-500/20 bg-black/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -224,12 +225,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </footer>
 
-      <Link
-        to="/book-a-call"
+      <a
+        href="https://funnel.dineauto.com"
+        target="_blank"
+        rel="noopener noreferrer"
         className="lg:hidden fixed bottom-6 right-6 z-40 px-6 py-3 bg-gradient-to-r from-amber-400 to-green-500 text-black font-bold rounded-full shadow-[0_0_40px_rgba(251,191,36,0.6)] hover:scale-110 transition-transform"
       >
-        Book Call
-      </Link>
+        Get Started
+      </a>
 
       <ExitIntentEbookModal
         isOpen={ebookModalOpen}

@@ -167,7 +167,7 @@ function MarqueeColumn({ items, reverse = false, duration = '35s' }: MarqueeColu
 
 export default function TestimonialsMarquee() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden" style={{ background: '#080c08' }}>
+    <section className="relative py-14 md:py-20 overflow-hidden" style={{ background: '#080c08' }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,255,133,0.05), transparent 70%)' }} />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

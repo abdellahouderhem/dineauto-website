@@ -198,10 +198,12 @@ export default function FAQ() {
                   Book a free 30-minute call with our team. We'll answer all your questions and show you exactly how DineAuto can transform your restaurant.
                 </p>
                 <a
-                  href="/book-a-call"
+                  href="https://funnel.dineauto.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block px-8 sm:px-10 md:px-12 py-3 sm:py-4 bg-gradient-to-r from-amber-400 to-green-500 text-black font-bold text-base sm:text-lg rounded-full hover:shadow-[0_0_50px_rgba(251,191,36,0.6)] hover:scale-105 transition-all duration-300"
                 >
-                  Book Your Free Call
+                  Get Started
                 </a>
               </div>
             </div>

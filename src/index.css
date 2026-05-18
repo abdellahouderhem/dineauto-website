@@ -326,7 +326,11 @@
 }
 
 @media (max-width: 768px) {
-  a[href="/book-a-call"].lg\:hidden {
+  a[href="https://funnel.dineauto.com"].lg\:hidden {
     display: none !important;
   }
+}
+
+html {
+  background-color: #0a0a0a;
 }

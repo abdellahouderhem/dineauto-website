@@ -103,7 +103,7 @@ export default function About() {
                 <h2 className="text-2xl font-bold text-white mb-3">Leadership</h2>
                 <div className="space-y-2">
                   <div className="text-white font-semibold text-lg">Abdellah Ait-Ali-Ouderhem</div>
-                  <div className="text-amber-400">Founder & Organizer, DARYA LLC</div>
+                  <div className="text-amber-400">Founder, DineAuto LLC</div>
                   <p className="text-gray-300 text-sm mt-3">
                     Expert in marketing automation, AI implementation, and strategic growth systems for restaurants.
                   </p>
@@ -154,8 +154,8 @@ export default function About() {
                 Book a free 30-minute strategy call and see exactly how AI and better marketing can transform
                 your restaurant.
               </p>
-              <PremiumButton to="/book-a-call" variant="primary" icon={ArrowRight} className="!text-xl">
-                Book a Free Strategy Call
+              <PremiumButton href="https://funnel.dineauto.com" variant="primary" icon={ArrowRight} className="!text-xl">
+                See How We Help Restaurants Grow
               </PremiumButton>
             </div>
           </div>

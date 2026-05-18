@@ -247,7 +247,7 @@ export default function RoadmapSection() {
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   return (
-    <section className="relative py-24 md:py-36 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-[120px]" />
