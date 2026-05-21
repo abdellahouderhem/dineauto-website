@@ -17,7 +17,7 @@ const steps = [
     title: 'Step 2 — Targeted Ads',
     description:
       'We run ads with that content using proven strategies that bring customers in at the lowest possible cost.',
-    videoId: 'z3RjkmhHrA8',
+    videoId: 'aYykUhqQrbE',
   },
   {
     number: 3,
