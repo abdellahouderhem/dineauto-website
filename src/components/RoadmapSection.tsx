@@ -9,7 +9,7 @@ const steps = [
     title: 'Step 1 — Professional Content',
     description:
       'You snap a photo with your phone. We turn it into studio-quality videos with custom music.',
-    videoId: 'mTkwVCrEI-M',
+    videoId: 'KyzYwStTj4A',
   },
   {
     number: 2,
@@ -17,7 +17,7 @@ const steps = [
     title: 'Step 2 — Targeted Ads',
     description:
       'We run ads with that content using proven strategies that bring customers in at the lowest possible cost.',
-    videoId: 'kAVui2OFHDk',
+    videoId: 'z3RjkmhHrA8',
   },
   {
     number: 3,
@@ -25,7 +25,7 @@ const steps = [
     title: 'Step 3 — 24/7 AI Reservation Machine',
     description:
       'Our AI answers questions and handles bookings around the clock. No missed calls. No lost reservations.',
-    videoId: 'YOE9HlHGPfM',
+    videoId: '2GcfoCdwzAw',
   },
   {
     number: 4,
