@@ -79,7 +79,8 @@ export default function ScarcityVideoSection() {
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/lQBh81x0IK8"
                   title="DineAuto Funnel Activity"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               </div>

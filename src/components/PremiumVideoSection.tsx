@@ -60,7 +60,8 @@ export default function PremiumVideoSection() {
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/uxthCyCiCgE"
                   title="DineAuto Restaurant Growth Platform"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               </div>
