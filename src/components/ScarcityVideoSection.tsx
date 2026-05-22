@@ -77,10 +77,9 @@ export default function ScarcityVideoSection() {
               <div className="aspect-video w-full relative">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube-nocookie.com/embed/lQBh81x0IK8?origin=https://dineauto.com"
+                  src="https://www.youtube.com/embed/lQBh81x0IK8"
                   title="DineAuto Funnel Activity"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
               </div>
