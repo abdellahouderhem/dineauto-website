@@ -104,9 +104,8 @@ function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void
           <div className="aspect-video w-full bg-black">
             <iframe
               className="w-full h-full"
-              src={`https://www.youtube-nocookie.com/embed/${videoId}?origin=https://dineauto.com&rel=0&modestbranding=1&showinfo=0&autoplay=1`}
+              src={`https://www.youtube-nocookie.com/embed/${videoId}`}
               title="DineAuto Step Video"
-              referrerPolicy="strict-origin-when-cross-origin"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             />
