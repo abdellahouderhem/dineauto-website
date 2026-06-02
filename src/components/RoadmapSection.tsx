@@ -33,7 +33,7 @@ const steps = [
     title: 'Step 4 — Automatic Review Generation',
     description:
       'After every visit automatic review requests go out. Our AI responds. More 5-stars means stronger SEO and more trust.',
-    videoId: 'XfaV4bFYZvw',
+    videoId: 'lDNn6nuhhis',
   },
   {
     number: 5,
@@ -41,7 +41,7 @@ const steps = [
     title: 'Step 5 — Customer Comeback System',
     description:
       'Automated personalized offers bring customers back again and again. More visits. More revenue. Higher lifetime value.',
-    videoId: 'hAq5WfbFCHY',
+    videoId: 'LY_YUTEaHdo',
   },
 ];
 
