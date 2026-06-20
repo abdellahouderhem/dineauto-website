@@ -14,7 +14,7 @@ export default function Legal() {
               </span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Transparent information about DARYA LLC and DineAuto
+              Transparent information about DineAuto LLC and DineAuto
             </p>
           </div>
         </div>

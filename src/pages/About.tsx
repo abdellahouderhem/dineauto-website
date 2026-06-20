@@ -130,7 +130,7 @@ export default function About() {
           <div className="p-12 rounded-2xl bg-gradient-to-br from-gray-900 to-black border-2 border-green-400/30">
             <h2 className="text-4xl font-bold text-white mb-6">Company Information</h2>
             <div className="space-y-4 text-gray-400">
-              <p><strong className="text-white">Company:</strong> DARYA LLC</p>
+              <p><strong className="text-white">Company:</strong> DineAuto LLC</p>
               <p><strong className="text-white">Organizer:</strong> Abdellah Ait-Ali-Ouderhem</p>
               <p><strong className="text-white">Address:</strong> 30 N Gould St Ste R, Sheridan, WY 82801</p>
               <p><strong className="text-white">Email:</strong> <a href="mailto:support@dineauto.com" className="text-amber-400 hover:text-amber-300">support@dineauto.com</a></p>
