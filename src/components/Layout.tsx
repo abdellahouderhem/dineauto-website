@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen text-white relative">
       <ParticleBackground />
       <nav className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="max-w-[1400px] mx-auto bg-black/40 backdrop-blur-xl rounded-full shadow-[0_8px_40px_rgba(0,0,0,0.5)] border border-cyan-500/20 px-4 sm:px-6 md:px-8 py-3 sm:py-4">
+        <div className="max-w-[1400px] mx-auto bg-black/40 backdrop-blur-md md:backdrop-blur-xl rounded-full shadow-[0_8px_40px_rgba(0,0,0,0.5)] border border-cyan-500/20 px-4 sm:px-6 md:px-8 py-3 sm:py-4">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
               <div className="relative">
@@ -69,7 +69,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 bg-black/40 backdrop-blur-xl rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.5)] border border-cyan-500/20 overflow-hidden">
+          <div className="lg:hidden mt-4 bg-black/40 backdrop-blur-md md:backdrop-blur-xl rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.5)] border border-cyan-500/20 overflow-hidden">
             <div className="px-6 py-6 space-y-4">
               {[
                 { path: '/', label: 'Home' },
@@ -105,7 +105,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <main className="relative z-[1] pt-14 md:pt-20">{children}</main>
 
-      <footer className="relative z-[1] mt-32 border-t border-cyan-500/20 bg-black/70 backdrop-blur-xl">
+      <footer className="relative z-[1] mt-32 border-t border-cyan-500/20 bg-black/70 backdrop-blur-md md:backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
             <div className="lg:col-span-1">

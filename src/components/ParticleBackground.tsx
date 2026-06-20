@@ -22,7 +22,11 @@ export default function ParticleBackground() {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    let animationId: number;
+    // Particle canvas is desktop-only: on phones it pegged the main thread
+    // (per-frame shadowBlur + O(n²) lines). Mobile shows the static grid background.
+    if (window.innerWidth < 768) return;
+
+    let animationId = 0;
     let W = 0, H = 0, dpr = 1;
     let nodes: Node[] = [];
     let mouseX = -9999, mouseY = -9999;
@@ -168,24 +172,33 @@ export default function ParticleBackground() {
       drawFrame(true);
       animationId = requestAnimationFrame(loop);
     };
+    const start = () => { if (!animationId) animationId = requestAnimationFrame(loop); };
+    const stop = () => { if (animationId) { cancelAnimationFrame(animationId); animationId = 0; } };
 
     resize();
-    prefersReducedMotion ? drawFrame(false) : loop();
+    prefersReducedMotion ? drawFrame(false) : start();
 
     const onMouseMove = (e: MouseEvent) => { mouseX = e.clientX; mouseY = e.clientY; };
     const onMouseLeave = () => { mouseX = -9999; mouseY = -9999; };
+    // Pause the loop when the tab is hidden — no point burning CPU/battery off-screen.
+    const onVisibility = () => {
+      if (document.hidden) stop();
+      else if (!prefersReducedMotion) start();
+    };
 
     if (!isMobile()) {
       window.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseleave', onMouseLeave);
     }
     window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', onVisibility);
 
     return () => {
-      cancelAnimationFrame(animationId);
+      stop();
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseleave', onMouseLeave);
+      document.removeEventListener('visibilitychange', onVisibility);
     };
   }, []);
 
