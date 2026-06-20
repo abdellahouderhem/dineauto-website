@@ -21,7 +21,7 @@ export default function PremiumButton({
   className = '',
 }: PremiumButtonProps) {
   const baseClasses =
-    'group relative px-8 py-4 rounded-[10px] font-bold text-lg transition-all duration-200 ease-in-out overflow-hidden inline-flex items-center gap-3 justify-center';
+    'group relative px-5 py-3 text-sm sm:px-6 sm:text-base md:px-8 md:py-4 md:text-lg rounded-[10px] font-bold transition-all duration-200 ease-in-out overflow-hidden inline-flex items-center gap-2 sm:gap-3 justify-center';
 
   const variants = {
     primary:

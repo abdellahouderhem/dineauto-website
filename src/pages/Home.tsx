@@ -49,7 +49,7 @@ export default function Home() {
             work 24/7 while you focus on what matters.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-12 sm:mb-16">
             <PremiumButton href="https://funnel.dineauto.com" variant="primary" icon={ArrowRight}>
               See How We Help Restaurants Grow
             </PremiumButton>
