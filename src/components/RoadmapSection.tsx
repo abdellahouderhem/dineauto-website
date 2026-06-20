@@ -286,7 +286,7 @@ export default function RoadmapSection() {
 
           <div className="flex justify-start md:justify-center mb-16 pl-4 md:pl-0">
             <div className="relative">
-              <div className="absolute inset-0 bg-green-500/60 rounded-full blur-xl animate-pulse" />
+              <div className="absolute inset-0 bg-green-500/60 rounded-full blur-xl md:animate-pulse" />
               <div className="relative w-5 h-5 rounded-full bg-green-500 border-2 border-green-300 shadow-[0_0_25px_rgba(34,197,94,0.9)]" />
             </div>
           </div>
@@ -331,22 +331,26 @@ export default function RoadmapSection() {
           0% { transform: translateY(0%); }
           100% { transform: translateY(100%); }
         }
-        .animate-energy-flow {
-          animation: energy-flow 2.5s linear infinite;
-        }
         @keyframes breathe {
           0%, 100% { opacity: 0.35; transform: scale(1); }
           50% { opacity: 0.65; transform: scale(1.04); }
-        }
-        .animate-breathe {
-          animation: breathe 4s ease-in-out infinite;
         }
         @keyframes pulse-node {
           0%, 100% { opacity: 0.4; transform: scale(1); }
           50% { opacity: 0.7; transform: scale(1.15); }
         }
-        .animate-pulse-node {
-          animation: pulse-node 3s ease-in-out infinite;
+        /* Animations run on desktop only and respect reduced-motion — keeps the
+           mobile main thread idle (no always-running timeline animation on phones). */
+        @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+          .animate-energy-flow {
+            animation: energy-flow 2.5s linear infinite;
+          }
+          .animate-breathe {
+            animation: breathe 4s ease-in-out infinite;
+          }
+          .animate-pulse-node {
+            animation: pulse-node 3s ease-in-out infinite;
+          }
         }
       `}</style>
     </section>
